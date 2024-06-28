@@ -1,0 +1,25 @@
+name: Building and Testing
+
+on:
+ pull_request:
+  branches: ['main']
+
+jobs:
+ build-and-test-locally:
+  runs-on: ubuntu-latest
+
+  steps:
+  - name: Copy the source code
+    uses: actions/Checkout@v4
+  - name: Install npm dependencies
+    run: npm install
+    
+  - name: Start unit tests
+    run: npm test:unit
+
+  - name: Install browsers
+    run: npx playwright install
+  - name: Start the App
+    run: npm start &
+  - name: Start UI tests
+    run: npm test:ui
