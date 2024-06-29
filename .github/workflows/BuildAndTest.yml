@@ -18,11 +18,11 @@ jobs:
     run: npm install
 
   - name: Start unit tests
-    run: npm test:unit
+    run: npm run test:unit
 
   - name: Install browsers
     run: npx playwright install
   - name: Start the App
     run: npm start &
   - name: Start UI tests
-    run: npm test:ui
+    run: npm run test:ui
