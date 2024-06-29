@@ -25,6 +25,9 @@ jobs:
   - name: Start unit tests
     run: npm run test:unit
 
+  - name: Display my SoftUni user name
+    run: echo 'Todor_Zarkov'
+
   - name: Install browsers
     run: npx playwright install
   - name: Start the App
