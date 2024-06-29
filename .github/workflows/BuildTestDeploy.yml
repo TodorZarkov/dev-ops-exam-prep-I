@@ -36,5 +36,5 @@ jobs:
    - name: Deploy to render
      uses: halfdomelabs/render-deploy@v0.1.2
      with:
-      service-id: ${{'RENDER_EXAM_PREP_I_ID'}}
-      render-token: ${{'RENDER_EXAM_PREP_KEY'}}
+      service-id: ${{secrets.RENDER_EXAM_PREP_I_ID}}
+      render-token: ${{secrets.RENDER_EXAM_PREP_KEY}}
