@@ -1,4 +1,4 @@
-name: Building and Testing
+name: Building, Testing and Deploy Render
 
 on:
  push:
@@ -26,3 +26,15 @@ jobs:
     run: npm start &
   - name: Start UI tests
     run: npm run test:ui
+
+ deploy-on-render:
+  runs-on: ubuntu-latest
+  if: github.ref == 'refs/heads/main'
+  needs: build-and-test-locally
+
+  steps:
+   - name: Deploy to render
+     uses: halfdomelabs/render-deploy@v0.1.2
+     with:
+      service-id: ${{'RENDER_EXAM_PREP_I_ID'}}
+      render-token: ${{'RENDER_EXAM_PREP_KEY'}}
