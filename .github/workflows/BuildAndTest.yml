@@ -1,8 +1,11 @@
 name: Building and Testing
 
 on:
+ push:
+  branches: ["main"]
  pull_request:
-  branches: ['main']
+  branches: ["main"]
+ workflow_dispatch: 
 
 jobs:
  build-and-test-locally:
@@ -13,7 +16,7 @@ jobs:
     uses: actions/Checkout@v4
   - name: Install npm dependencies
     run: npm install
-    
+
   - name: Start unit tests
     run: npm test:unit
 
